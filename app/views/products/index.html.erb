@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <% @products.each do |product| %>
+      <div class="col s12 m6 l3 product-column">
+        <%= link_to product_path(product) do %>
+          <div class="card">
+            <div class="card-image"><%= image_tag product.image_url %></div>
+          </div>
+          <div class="card-content center">
+            <span><%= product.name %></span><br /><span class="price">&#x20A6;<%= product.price %></span>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

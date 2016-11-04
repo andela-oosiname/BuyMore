@@ -1,0 +1,45 @@
+// Place all the styles related to the products controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.product-column {
+  margin-bottom: 3em !important;
+}
+
+.product-image-div {
+  padding-top: 2em;
+  padding-bottom: 5em;
+  border-right: 1px solid #ccc;
+}
+
+.product-image {
+  width: 450px;
+}
+
+.product-title {
+  font-family: "PT Sans", sans-serif;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 400;
+  color: #009688;
+  font-family: "PT Sans", sans-serif;
+}
+
+.quantity {
+  width: 10%
+}
+
+.add-to-cart {
+  margin-bottom: 2em;
+}
+
+.description {
+  font-family: "PT Sans", sans-serif;
+      font-weight: 600;
+    text-transform: uppercase;
+}
+
+hr {
+  margin-bottom: 1em;
+}
