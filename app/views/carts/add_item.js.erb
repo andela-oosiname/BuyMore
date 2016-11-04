@@ -1,0 +1,4 @@
+<% js = escape_javascript(
+  render(partial: 'carts/list', locals: { items: @items, size: @size})
+) %>
+$("#cart").html("<%= js %>");

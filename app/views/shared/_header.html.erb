@@ -1,0 +1,21 @@
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#!" class="brand-logo black-text">Buy More</a>
+      <ul id="dropdown1" class="dropdown-content">
+          <%= render( partial: 'carts/list', locals: { items: @items }) %>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+
+        <li>
+          <i class = "material-icons green-text">shopping_cart</i>
+          <li class="green-text">4</li>
+        </li>
+        <li><a class="dropdown-button green-text" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons green-text right">arrow_drop_down</i></a></li>
+        <li class="black-text"><a href="sass.html" class="black-text">Sass</a></li>
+        <li class="black-text"><a href="badges.html" class="black-text">Components</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+

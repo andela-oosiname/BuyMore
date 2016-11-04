@@ -1,43 +1,25 @@
-<div class="row">
-  <div class=" col m12 s12 l3">
-  <ul>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  <li>jhg</li>
-  </ul>
-  </div>
-  <div class=" col m12 s12 l9">
-    <div class="row">
-  <div class=" col m12 s12 l5">
-    <div class="product-image-div"><%= image_tag(@product.image_url, class: "product-image") %></div>
-  </div>
-  <div class=" col m12 s12 l6">
-    <h5 class="product-title"><%= @product.name %></h5>
-    <span class="price">&#x20A6;<%= @product.price %></span>
-    <div class="quantity">
-      <div class="group-input">
-        <input type="number" title="Quantity" step="1" min="1" size="4" id="quantity" name="quantity" value="1" class="not-empty quantity">
-        <span class="bar"></span>
-      </div>
-      <button type="submit" class="btn btn-1 ripple add-to-cart" name="add" id="add" data-addtocart="Buy now" data-unavailable="Product unavailable" data-soldout="Out of stock">Buy now</button>
+<div class="container">
+  <div class="row">
+    <div class=" col m12 s12 l6">
+      <div class="product-image-div"><%= image_tag(@product.image_url, class: "product-image") %></div>
     </div>
-    <h6 class="description">DESCRIPTION</h6>
-    <hr>
-    <div>
-      <span><%= @product.description %> </span>
-    <div>
+    <div class=" col m12 s12 l6">
+      <h5 class="product-title"><%= @product.name %></h5>
+      <span class="price">&#x20A6;<%= @product.price %></span>
+      <div class="quantity">
+      <%= form_tag(cart_path, method: "post", remote: true) do %>
+        <div class="group-input">
+          <%= number_field_tag :quantity, 1, min: 1, class: "quantity" %>
+          <%= hidden_field_tag(:product_id, @product.id) %>
+        </div>
+      <%= submit_tag "BUY NOW", class: "btn btn-1 ripple add-to-cart" %>
+      <% end %>
+      </div>
+      <h6 class="description">DESCRIPTION</h6>
+      <hr>
+      <div>
+        <span><%= @product.description %> </span>
+      <div>
+    </div>
   </div>
-</div>
-
-  </div>
-
 </div>

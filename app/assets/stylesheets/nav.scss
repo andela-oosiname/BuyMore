@@ -1,0 +1,50 @@
+.nav-wrapper {
+      background-color: white !important;
+
+}
+
+.black-text {
+  color: #050505 !important;
+}
+
+.green-text {
+  color: #00897B;
+}
+
+.dropdown-content {
+  width: 30%;
+  position: absolute;
+  top: 0px;
+  left: 69%;
+  opacity: 1;
+  display: block;
+  font-size: 13px;
+  margin-top: 4.5em;
+  margin-right: 3em;
+}
+
+.cart-item-list {
+  word-wrap: break-word;
+  line-height: normal;
+  padding-top: 1.8em;
+}
+
+.sub-total {
+  font-family: "Lato", sans-serif;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #212121;
+  margin: 0 0 15px 0;
+  position: relative;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sub-total-col {
+  text-align: center;
+}
+
+.checkout-col {
+  text-align: center;
+}
