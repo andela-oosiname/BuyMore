@@ -12,8 +12,12 @@
           <li class="green-text">4</li>
         </li>
         <li><a class="dropdown-button green-text" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons green-text right">arrow_drop_down</i></a></li>
-        <li class="black-text"><a href="sass.html" class="black-text">Sass</a></li>
-        <li class="black-text"><a href="badges.html" class="black-text">Components</a></li>
+        <% if current_user %>
+          <li class="black-text"> <span style="text-transform: uppercase;">WELCOME <%= current_user.firstname %></span></li>
+           <li class="black-text">  <%= link_to "LOGOUT", login_path, class: "black-text" %> </li>
+         <% else %>
+          <li class="black-text">  <%= link_to "LOGIN", login_path, class: "black-text" %> </li>
+        <% end %>
       </ul>
     </div>
   </nav>

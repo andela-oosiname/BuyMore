@@ -1,0 +1,45 @@
+<section id="module-content" class="clearfix">
+
+
+  <div class="page-top">
+    <div class="container">
+      <h5 class="page-title">Account Login</h5>
+    </div>
+  </div>
+  <div id="content" class="container">
+    <div class="row">
+      <div class="central">
+        <div id="col-main" class="clearfix">
+          <div id="customer-register">
+            <h4 class="page-title">Account Login</h4>
+            <%= form_tag do %>
+
+               <div class="row">
+                <div class="input-field col s12">
+                  <%= label_tag :email, "Email" %>
+                  <%= email_field_tag :email %>
+                </div>
+              </div>
+
+               <div class="row">
+                <div class="input-field col s12">
+                  <%= label_tag :password, "Password" %>
+                  <%= password_field_tag :password %>
+                </div>
+              </div>
+
+              <div class="control-group">
+                <%= submit_tag "LOGIN", class:"btn btn-1 ripple" %>
+              </div>
+
+              <div class="login-account">
+                <%= link_to "Dont have an account? Click here", new_customer_path  %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

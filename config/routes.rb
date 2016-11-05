@@ -5,7 +5,12 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'products#index'
 
+  get "/login", to: "sessions#new"
+  post "/login", to: "sessions#create"
+
   resources :products
   get "/cart", to: "carts#index", as: :cart_index
   post "/cart", to: "carts#add_item"
+
+  resources :customers, only: [:new, :create]
 end

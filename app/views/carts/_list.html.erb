@@ -1,4 +1,5 @@
 <div id="cart" style="padding: 0 1em;">
+  <% if items %>
   <% items.each_pair do |key, item| %>
     <div style="border-bottom: 1px solid #ccc">
       <div class="row">
@@ -32,4 +33,5 @@
       </div>
     </div>
   </div>
+  <% end %>
 </div>

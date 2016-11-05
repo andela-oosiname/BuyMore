@@ -1,0 +1,37 @@
+#module-content {
+    max-height: 100%;
+    width: 100%;
+    background: #ffffff;
+}
+.page-top {
+    background-color: #fafafa;
+    color: #757575;
+    text-align: center;
+    padding: 30px 0;
+    box-shadow: 0 -2px 1px -1px rgba(0,0,0,0.04) inset;
+}
+
+.central {
+    width: 640px;
+    padding: 0 30px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.group-input {
+    position: relative;
+    margin: 30px 0 24px;
+}
+
+label {
+    color: #050505;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    margin: 0;
+    left: 5px;
+    top: 10px;
+    transition: top 0.2s ease-out;
+    -moz-transition: top 0.2s ease-out;
+    -webkit-transition: top 0.2s ease-out;
+}
