@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   resources :products
   get "/cart", to: "carts#index", as: :cart_index
   post "/cart", to: "carts#add_item"
+  get "/cart/delete/:id", to: "carts#remove_item", as: "remove-item"
 
   resources :customers, only: [:new, :create]
+
+  resources :orders, only: [:new, :index]
 end

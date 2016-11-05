@@ -1,0 +1,44 @@
+<div class="container">
+  <div style="padding: 0 1em;">
+    <% if !@orders.empty? %>
+      <div class="order-div">
+        <% @orders.each do |order| %>
+          <div class="order-div-header">
+            <div class="row">
+              <div class="col l4">
+                <span>Order <%= order.order_no %></span>
+              </div>
+              <div class="col l4">
+                <span>Date: <%= order.date %></span>
+              </div>
+              <div class="col l4">
+                <span>Total: $<%= order.total %></span>
+              </div>
+            </div>
+          </div>
+          <% order.order_lines.each do |order_line| %>
+            <div class="order-details">
+              <div class="row">
+                <div class="col s1 l6">
+                  <div class="black-text"><%= order_line.product.name %></div>
+                </div>
+                <div class="col s1 l1">
+                  <div class="black-text"><%= order_line.qty %></div>
+                </div>
+                <div class="col s2 l2">
+                  <div class="black-text">$<%= order_line.unit_price %></div>
+                </div>
+                <div class="col s2 l2">
+                  <div class="black-text">$<%= order_line.total_price %></div>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    <% else %>
+
+    <h5> You do not have any orders </h5>
+    <% end %>
+  </div>
+</div>

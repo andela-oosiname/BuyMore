@@ -12,12 +12,11 @@
 }
 
 .dropdown-content {
-  width: 30%;
+  width: 30% !important;
   position: absolute;
   top: 0px;
   left: 69%;
   opacity: 1;
-  display: block;
   font-size: 13px;
   margin-top: 4.5em;
   margin-right: 3em;

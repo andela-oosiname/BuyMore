@@ -1,0 +1,53 @@
+<div class="container">
+  <div id="cart" style="padding: 0 1em;">
+  <% unless @cart.empty? %>
+    <div style="border-bottom: 1px solid #ccc">
+        <div class="row">
+          <div class="col s1 l6">
+            <div class="black-text cart-item-list">Item</div>
+          </div>
+          <div class="col s1 l1">
+            <div class="black-text">Quantity</div>
+          </div>
+          <div class="col s2 l2">
+            <div class="black-text">Unit Price</div>
+          </div>
+          <div class="col s2 l2">
+            <div class="black-text">Total</div>
+          </div>
+        </div>
+      </div>
+    <% @cart.each_pair do |key, item| %>
+      <div style="border-bottom: 1px solid #ccc">
+        <div class="row">
+          <div class="col s1 l6">
+            <div class="black-text cart-item-list"><%= item["name"] %></div>
+          </div>
+          <div class="col s1 l1">
+            <div class="black-text"><%= item["quantity"] %></div>
+          </div>
+          <div class="col s2 l2">
+            <div class="black-text">$<%= item["amount"] %></div>
+          </div>
+          <div class="col s2 l2">
+            <div class="black-text">$<%= item["amount"] * item["quantity"] %></div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <div>
+    <div class="row">
+      <div class="col l12 sub-total-col">
+        <span class="black-text sub-total">SUBTOTAL: $<%= @total_amount %> </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col l12 checkout-col">
+        <%= link_to "CONFIRM", new_order_path, class:"btn btn-1" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+</div>
