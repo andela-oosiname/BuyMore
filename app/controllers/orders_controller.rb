@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = current_user.orders.includes("order_lines")
+    @orders = current_user.orders.order("date DESC").includes("order_lines")
   end
 
   def convert_cart_session_to_hash
