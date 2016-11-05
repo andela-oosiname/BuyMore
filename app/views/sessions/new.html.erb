@@ -1,3 +1,9 @@
+<% if flash['notice'] %>
+  <%= javascript_tag do %>
+      Materialize.toast("<%= flash['notice'] %>", 2000)
+  <% end %>
+<% end %>
+
 <section id="module-content" class="clearfix">
 
 

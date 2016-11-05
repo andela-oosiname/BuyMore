@@ -7,10 +7,13 @@ Rails.application.routes.draw do
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
+  get "/logout", to: "sessions#destroy"
 
   resources :products
   get "/cart", to: "carts#index", as: :cart_index
   post "/cart", to: "carts#add_item"
+
+  get "/set-cart", to: "carts#set_cart", as: :set_cart
   get "/cart/delete/:id", to: "carts#remove_item", as: "remove-item"
 
   resources :customers, only: [:new, :create]

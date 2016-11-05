@@ -4,31 +4,27 @@ class CartsController < ApplicationController
 
     items = @cart.values
 
-    @total_amount = items.inject(0) { |sum, item| sum + (item[:amount].to_f * item[:quantity]) }
+    @total_amount = items.inject(0) { |sum, item| sum + (item[:amount].to_f * item[:quantity]).round(2) }
   end
 
   def add_item
-    # session.delete(:cart)
-
-
     product = Product.find_by(id: params[:product_id])
 
-    item_hash = { amount: product.price.to_f, quantity: params[:quantity].to_f,  name: product.name}
+    item_hash = { amount: (product.price.to_f).round(2), quantity: params[:quantity].to_i,  name: product.name}
 
     cart = convert_cart_session_to_hash
 
     if cart && cart.key?(params[:product_id])
-      cart[params[:product_id]][:quantity] += params[:quantity].to_f
+      cart[params[:product_id]][:quantity] += params[:quantity].to_i
     else
       cart[params[:product_id]] = item_hash
     end
 
-    # require "pry"; binding.pry
+    flash["notice"] = "Item Added"
     set_session_and_response(cart)
   end
 
   def remove_item
-    # require "pry"; binding.pry
      cart = convert_cart_session_to_hash
 
     if cart && cart.key?(params[:id])
@@ -44,10 +40,16 @@ class CartsController < ApplicationController
     cart.with_indifferent_access
   end
 
+  def set_cart
+    cart = convert_cart_session_to_hash
+
+    set_session_and_response(cart)
+  end
+
   def set_session_and_response(cart)
     items = cart.values
 
-    @total_amount = items.inject(0) { |sum, item| sum + (item[:amount].to_f * item[:quantity]) }
+    @total_amount = items.inject(0) { |sum, item| sum + (item[:amount].to_f * item[:quantity]).round(2) }
     @size = cart.size
     @items = cart
 

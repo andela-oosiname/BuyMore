@@ -9,9 +9,11 @@ class CustomersController < ApplicationController
 
     if customer.save
       login customer
+
+      flash["notice"] = "Welcome #{customer.firstname}"
       return redirect_to root_path
     else
-      flash["error"] = "Error Signing Up"
+      flash["notice"] = "Error Signing Up"
       redirect_to :back
     end
   end

@@ -7,14 +7,12 @@
       </ul>
       <ul class="right hide-on-med-and-down">
 
-        <li>
-          <i class = "material-icons green-text">shopping_cart</i>
-          <li class="green-text">4</li>
-        </li>
-        <li><a class="dropdown-button green-text" href="#!" data-activates="dropdown1">Dropdown<i class="material-icons green-text right">arrow_drop_down</i></a></li>
+        <li><%= link_to set_cart_path, remote: true do %><i class = "material-icons green-text dropdown-button" href="#!" data-activates="dropdown1">shopping_cart</i>
+        <% end %></li>
+
         <% if current_user %>
           <li class="black-text"> <span style="text-transform: uppercase;">WELCOME <%= current_user.firstname %></span></li>
-           <li class="black-text">  <%= link_to "LOGOUT", login_path, class: "black-text" %> </li>
+           <li class="black-text">  <%= link_to "LOGOUT", logout_path, class: "black-text" %> </li>
          <% else %>
           <li class="black-text">  <%= link_to "LOGIN", login_path, class: "black-text" %> </li>
         <% end %>

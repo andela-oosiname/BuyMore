@@ -4,18 +4,21 @@ class ProductsController < ApplicationController
     @items = {}
   end
 
+  def new
+    @product = Product.new
+  end
+
+  def create
+  end
+
   def show
     @product = Product.find_by(id: params[:id])
     @items = {}
   end
 
-  def add_to_cart
-    session[:cart] =
-    @product = Product.find_by(id: params[:id])
-  end
+  private
 
-
-
-  def remove_from_cart
+  def product_params
+    params.require(:product).permit(:name, :image_url, :price, :description, :status)
   end
 end

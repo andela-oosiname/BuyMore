@@ -1,6 +1,8 @@
-<section id="module-content" class="clearfix">
-
-
+<% if flash['notice'] %>
+  <%= javascript_tag do %>
+      Materialize.toast("<%= flash['notice'] %>", 4000)
+  <% end %>
+<% end %>
   <div class="page-top">
     <div class="container">
       <h5 class="page-title">Create Account</h5>
