@@ -12,8 +12,4 @@ class ApplicationController < ActionController::Base
   def login(customer)
     session[:customer_id] = customer.id
   end
-
-  def logout
-    session.delete(:customer_id)
-  end
 end

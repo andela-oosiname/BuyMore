@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
   def create
     product = Product.new(product_params)
 
-    if product.save!
+    if product.save
       flash["notice"] = "Product successfully added"
 
       return redirect_to new_product_path
@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
 
   def update
       product = Product.find_by(params[:id])
+
     if product.update(product_params)
       flash["notice"] = "Product Updated"
 

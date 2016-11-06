@@ -14,7 +14,7 @@ class CustomersController < ApplicationController
       return redirect_to root_path
     else
       flash["notice"] = "Error Signing Up"
-      redirect_to :back
+      redirect_to new_customer_path
     end
   end
 

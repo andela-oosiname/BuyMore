@@ -26,9 +26,6 @@ class OrdersController < ApplicationController
     return redirect_to root_path
   end
 
-  def create_order_and_lines
-  end
-
   def index
     @orders = current_user.orders.order("date DESC").includes("order_lines")
   end

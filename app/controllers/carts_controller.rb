@@ -24,8 +24,10 @@ class CartsController < ApplicationController
   end
 
   def remove_item
-     cart = convert_cart_session_to_hash
 
+    cart = convert_cart_session_to_hash
+
+    # require "pry"; binding.pry
     if cart && cart.key?(params[:id])
       cart.delete(params[:id])
     end
@@ -58,13 +60,6 @@ class CartsController < ApplicationController
     respond_to do |format|
       format.js
     end
-  end
-
-  def item_params
-    {
-      item_id: params[:product_id],
-      quantity: params[:quantity].to_i
-    }
   end
 end
 
