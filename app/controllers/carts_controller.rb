@@ -20,7 +20,6 @@ class CartsController < ApplicationController
       cart[params[:product_id]] = item_hash
     end
 
-    flash["notice"] = "Item Added"
     set_session_and_response(cart)
   end
 

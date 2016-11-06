@@ -1,0 +1,58 @@
+<% if flash['notice'] %>
+  <%= javascript_tag do %>
+      Materialize.toast("<%= flash['notice'] %>", 2000)
+  <% end %>
+<% end %>
+<div class="page-top">
+  <div class="container">
+    <h5 class="page-title">Edit Product</h5>
+  </div>
+</div>
+<div id="content" class="container">
+  <div class="row">
+    <div class="central">
+      <div id="col-main" class="clearfix">
+        <div id="customer-register">
+          <h4 class="page-title">Edit Product</h4>
+          <%= form_for @product do |f| %>
+            <div class="row">
+              <div class="input-field col s12 l6">
+                <%= f.label :name, "Name" %>
+                <%= f.text_field :name %>
+              </div>
+
+              <div class="input-field col s12 l6">
+              <%= f.label :description, "Description" %>
+              <%= f.text_field :description %>
+              </div>
+            </div>
+
+             <div class="row">
+              <div class="input-field col s12 l12">
+                <%= f.label :image_url, "Image Url" %>
+                <%= f.text_field :image_url %>
+              </div>
+            </div>
+
+             <div class="row">
+              <div class="input-field col s12 l6">
+                <%= f.label :price, "Price" %>
+                <%= f.number_field :price %>
+              </div>
+
+              <div class="input-field col s12 l6">
+                <%= f.select(:status, [[1, 1], [0, 0]], {} ) %>
+                <%= f.label :status, "Status" %>
+              </div>
+            </div>
+
+            <div class="control-group">
+              <%= f.submit "ADD PRODUCT", class: "btn btn-1 ripple" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
