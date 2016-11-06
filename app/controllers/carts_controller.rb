@@ -5,12 +5,20 @@ class CartsController < ApplicationController
     items = @cart.values
 
     @total_amount = items.inject(0) { |sum, item| sum + (item[:amount].to_f * item[:quantity]).round(2) }
+
+    values = { return_url:  "http://localhost:3000/orders/new", order_no: SecureRandom.hex(8) }
+
+    @cart.each_pair do |key, item|
+      values["#{item['name']}_#{item['quantity']}"] = item["amount"]
+    end
+
+    @payment_url = "http://localhost:5050/pay?" + values.to_query
   end
 
   def add_item
     product = Product.find_by(id: params[:product_id])
 
-    item_hash = { amount: (product.price.to_f).round(2), quantity: params[:quantity].to_i,  name: product.name}
+    item_hash = { amount: product.price.to_f.round(2), quantity: params[:quantity].to_i, name: product.name }
 
     cart = convert_cart_session_to_hash
 
@@ -24,19 +32,13 @@ class CartsController < ApplicationController
   end
 
   def remove_item
-
     cart = convert_cart_session_to_hash
-
-    # require "pry"; binding.pry
-    if cart && cart.key?(params[:id])
-      cart.delete(params[:id])
-    end
+    cart.delete(params[:id]) if cart && cart.key?(params[:id])
 
     set_session_and_response(cart)
   end
 
   def convert_cart_session_to_hash
-
     cart = session[:cart] ? JSON.parse(session[:cart]) : {}
     cart.with_indifferent_access
   end
@@ -54,7 +56,6 @@ class CartsController < ApplicationController
     @size = cart.size
     @items = cart
 
-
     session[:cart] = JSON.generate(cart)
 
     respond_to do |format|
@@ -62,4 +63,3 @@ class CartsController < ApplicationController
     end
   end
 end
-

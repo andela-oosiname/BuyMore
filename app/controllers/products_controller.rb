@@ -12,29 +12,29 @@ class ProductsController < ApplicationController
     product = Product.new(product_params)
 
     if product.save
-      flash["notice"] = "Product successfully added"
+      flash['notice'] = 'Product successfully added'
 
       return redirect_to new_product_path
     else
-       flash["notice"] = "Ooops product not added"
-       render :new
+      flash['notice'] = 'Ooops product not added'
+      render :new
     end
   end
 
   def edit
-     @product = Product.find_by(params[:id])
+    @product = Product.find_by(params[:id])
   end
 
   def update
-      product = Product.find_by(params[:id])
+    product = Product.find_by(params[:id])
 
     if product.update(product_params)
-      flash["notice"] = "Product Updated"
+      flash['notice'] = 'Product Updated'
 
       return redirect_to product_path(product)
     else
-       flash["notice"] = "Ooops An Error Occured"
-       render :edit
+      flash['notice'] = 'Ooops An Error Occured'
+      render :edit
     end
   end
 

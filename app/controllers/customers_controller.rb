@@ -1,5 +1,4 @@
 class CustomersController < ApplicationController
-
   def new
     @customer = Customer.new
   end
@@ -10,10 +9,10 @@ class CustomersController < ApplicationController
     if customer.save
       login customer
 
-      flash["notice"] = "Welcome #{customer.firstname}"
+      flash['notice'] = "Welcome #{customer.firstname}"
       return redirect_to root_path
     else
-      flash["notice"] = "Error Signing Up"
+      flash['notice'] = 'Error Signing Up'
       redirect_to new_customer_path
     end
   end

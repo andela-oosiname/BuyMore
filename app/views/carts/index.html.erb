@@ -1,3 +1,9 @@
+<% if flash['notice'] %>
+  <%= javascript_tag do %>
+      Materialize.toast("<%= flash['notice'] %>", 3000)
+  <% end %>
+<% end %>
+
 <div class="container">
   <div id="cart" style="padding: 0 1em;">
   <% unless @cart.empty? %>
@@ -43,7 +49,7 @@
     </div>
     <div class="row">
       <div class="col l12 checkout-col">
-        <%= link_to "CONFIRM", new_order_path, class:"btn btn-1" %>
+        <li><%= link_to "CONFIRM", @payment_url, class:"btn btn-1", method: :post %>
       </div>
     </div>
   </div>

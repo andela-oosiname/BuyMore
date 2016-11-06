@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Customer, type: :model do
-  it "is valid  with valid  attributes" do
+  it 'is valid  with valid  attributes' do
     expect(build(:customer)).to be_valid
   end
 
   let(:customer) { build(:customer) }
 
-  describe "instance methods" do
-    context "respond to instance method calls" do
+  describe 'instance methods' do
+    context 'respond to instance method calls' do
       it { expect(customer).to respond_to(:firstname) }
       it { expect(customer).to respond_to(:lastname) }
       it { expect(customer).to respond_to(:email) }
@@ -16,7 +16,7 @@ RSpec.describe Customer, type: :model do
     end
   end
 
-  describe "ActiveModel Validation" do
+  describe 'ActiveModel Validation' do
     it { expect(customer).to validate_presence_of(:firstname) }
     it { expect(customer).to validate_presence_of(:lastname) }
     it { expect(customer).to validate_presence_of(:email) }

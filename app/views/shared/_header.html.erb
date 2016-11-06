@@ -1,14 +1,14 @@
 <div class="navbar-fixed">
   <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo black-text">Buy More</a>
+      <%= link_to "Buy More", root_path, class: "brand-logo black-text" %>
       <ul id="dropdown1" class="dropdown-content">
           <%= render( partial: 'carts/list', locals: { items: @items }) %>
       </ul>
       <ul class="right hide-on-med-and-down">
 
-        <li><%= link_to set_cart_path, remote: true do %><i class = "material-icons green-text dropdown-button" href="#!" data-activates="dropdown1">shopping_cart</i>
-        <% end %></li>
+        <li><i class = "material-icons green-text dropdown-button" href="#!" data-activates="dropdown1">shopping_cart</i>
+        </li>
 
         <% if current_user %>
           <li class="black-text"> <span style="text-transform: uppercase;">WELCOME <%= current_user.firstname %></span></li>

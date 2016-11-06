@@ -1,6 +1,6 @@
-require "simplecov"
+require 'simplecov'
 SimpleCov.start
-require "factory_girl_rails"
+require 'factory_girl_rails'
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -18,4 +18,3 @@ RSpec.configure do |config|
   end
   config.shared_context_metadata_behavior = :apply_to_host_groups
 end
-

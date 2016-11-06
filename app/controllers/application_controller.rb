@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-   Customer.find_by(id: session[:customer_id])
+    Customer.find_by(id: session[:customer_id])
   end
 
   def login(customer)

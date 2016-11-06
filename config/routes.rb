@@ -5,17 +5,17 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'products#index'
 
-  get "/login", to: "sessions#new"
-  post "/login", to: "sessions#create"
-  get "/logout", to: "sessions#destroy"
+  get '/login', to: 'sessions#new'
+  post '/login', to: 'sessions#create'
+  get '/logout', to: 'sessions#destroy'
 
-  resources :products, only: [:new, :create, :edit, :update]
+  resources :products
 
-  get "/cart", to: "carts#index", as: :cart_index
-  post "/cart", to: "carts#add_item"
+  get '/cart', to: 'carts#index', as: :cart_index
+  post '/cart', to: 'carts#add_item'
 
-  get "/set-cart", to: "carts#set_cart", as: :set_cart
-  get "/cart/delete/:id", to: "carts#remove_item", as: "remove-item"
+  get '/set-cart', to: 'carts#set_cart', as: :set_cart
+  get '/cart/delete/:id', to: 'carts#remove_item', as: 'remove-item'
 
   resources :customers, only: [:new, :create]
 
