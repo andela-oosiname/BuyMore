@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.first(12)
+    @products = Product.order("id DESC")
     @items = {}
   end
 
@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
 
   def create
     product = Product.new(product_params)
+    product.image_url = "http://i.imgur.com/JQOY8u9.jpg"
 
     if product.save
       flash['notice'] = 'Product successfully added'

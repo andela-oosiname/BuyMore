@@ -47,3 +47,23 @@
 .checkout-col {
   text-align: center;
 }
+
+.cart-drop-down {
+  margin-left: 2em;
+  margin-right: 2em;
+  cursor: pointer;
+}
+
+.no-pad {
+  padding: 0 !important;
+  background: none !important;
+}
+
+.no-pad{
+  :hover {
+    background: none !important;
+  }
+}
+.no-pad:focus {
+  background: none !important;
+}

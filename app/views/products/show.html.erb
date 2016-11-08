@@ -6,7 +6,7 @@
     </div>
     <div class=" col m12 s12 l6">
       <h5 class="product-title"><%= @product.name %></h5>
-      <span class="price">&#x20A6;<%= @product.price %></span>
+      <span class="price">$<%= @product.price %></span>
       <div class="quantity">
       <%= form_tag(cart_path, method: "post", remote: true) do %>
         <div class="group-input">

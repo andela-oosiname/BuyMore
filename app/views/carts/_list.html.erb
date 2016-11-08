@@ -4,7 +4,7 @@
     <div style="border-bottom: 1px solid #ccc">
       <div class="row">
         <div class="col s1 l1">
-          <li><%= link_to remove_item_path(key), remote: true  do %><i class = "material-icons green-text">delete</i><% end %></li>
+          <%= link_to remove_item_path(key), remote: true , class: "no-pad" do %><i class = "material-icons green-text">delete</i><% end %>
         </div>
         <div class="col s1 l6">
           <div class="black-text cart-item-list"><%= item["name"] %></div>

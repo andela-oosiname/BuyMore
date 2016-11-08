@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     end
 
 
-    session.delete(:cart)
+
   end
 
   def index
@@ -37,6 +37,7 @@ class OrdersController < ApplicationController
         order_line.save!
       end
     end
+    session.delete(:cart)
 
     flash["notice"] = "Payment Was Successful. Your Order Is on its Way"
     return redirect_to orders_path
